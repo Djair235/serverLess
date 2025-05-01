@@ -10,4 +10,5 @@ datasource db {
 model Usuario {
   id    String @id @map("_id") @default(auto()) @db.ObjectId
   nome  String
+  idade Int
 }
