@@ -22,7 +22,7 @@ export default async function updateUser(req, res) {
                 where: { id: id},
                 data: { nome, idade }
             });
-            res.json(updatedUser)
+            return res.status(200).json(updatedUser)
         } catch (error) {
             console.log(`Erro ao atualizar o usuário: ${error}`);
             res.status(500).json({ error: 'Erro ao atualizar o usuário' });
