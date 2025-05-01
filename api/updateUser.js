@@ -14,19 +14,15 @@ export default async function updateUser(req, res) {
     if (req.method === "PUT") {
         try {
             const { nome, idade } = req.body
-
             const { id } = req.query;
-
             if (!id) {
                 return res.status(400).json({ error: 'ID é necessário' });
             }
-
             const updatedUser = await prisma.usuario.update({
                 where: { id: id},
                 data: { nome, idade }
             });
             res.json(updatedUser)
-
         } catch (error) {
             console.log(`Erro ao atualizar o usuário: ${error}`);
             res.status(500).json({ error: 'Erro ao atualizar o usuário' });

@@ -10,19 +10,17 @@ export default async function createUser(req, res) {
     if (req.method === 'OPTIONS') {
         return res.status(200).end();
     }
-
     if (req.method !== "POST") {
         return res.status(405).json({ error: 'Método não permitido' });
     }
 
     const { nome, idade } = req.body
-
+    
     try {
         const newUser = await prisma.usuario.create({
             data: { nome, idade }
         })
         return res.status(201).json(newUser);
-
     } catch (error) {
         console.error(error);
         return res.status(500).json({ error: 'Erro ao criar usuário' });
