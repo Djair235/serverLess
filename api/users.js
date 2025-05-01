@@ -3,6 +3,6 @@ export default async function apiResponse(req, res) {
         const message = "bom dia boa tarde boa noite"
         res.status(200).json(message);
     } else {
-        res.status(400).json({message: "tem q set GET fela da puta"})
+        res.status(400).json("tem q set GET fela da puta")
     }
 }
