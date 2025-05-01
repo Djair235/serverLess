@@ -14,7 +14,7 @@ export default async function apiResponse(req, res) {
     if (req.method !== "POST") {
         return res.status(405).json({ error: 'Método não permitido' });
     }
-
+    
     const { nome, idade } = req.body
 
     try {
