@@ -16,7 +16,7 @@ export default async function updateUser(req, res) {
             const { nome, idade } = req.body
 
             const updatedUser = await prisma.usuario.update({
-                where: { id: parseInt(req.params.id)},
+                where: { id: parseInt(req.query.id)},
                 data: { nome, idade }
             });
             res.json(updatedUser)
