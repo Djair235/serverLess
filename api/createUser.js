@@ -22,6 +22,7 @@ export default async function apiResponse(req, res) {
             data: { nome, idade }
         })
         return res.status(201).json(newUser);
+        
     } catch (error) {
         console.error(error);
         return res.status(500).json({ error: 'Erro ao criar usuário' });
