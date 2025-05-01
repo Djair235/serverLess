@@ -15,12 +15,12 @@ export default async function createUser(req, res) {
     }
 
     const { nome, idade } = req.body
-    
+
     try {
-        const newUser = await prisma.usuario.create({
+        const createdUser = await prisma.usuario.create({
             data: { nome, idade }
         })
-        return res.status(201).json(newUser);
+        return res.status(201).json({status: "Usuário criado com sucesso!", createdUser});
     } catch (error) {
         console.error(error);
         return res.status(500).json({ error: 'Erro ao criar usuário' });
