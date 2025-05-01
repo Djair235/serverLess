@@ -1,4 +1,4 @@
 export default async function apiResponse(req, res) {
-    const message = "bom dia boa tarde boa noite bucetinha "
+    const message = "bom dia boa tarde boa noite"
     res.status(200).json(message);
 }
